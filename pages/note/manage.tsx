@@ -41,7 +41,7 @@ const Page = ({ note }) => {
     note = noteManage.note
   }
   
-  const { totalCounts, items:noteItems } = note
+  const { totalCounts, items:noteItems } = _.cloneDeep(note)
   console.log('note', note)
 
   _.each(noteItems, (item, index) => { 
