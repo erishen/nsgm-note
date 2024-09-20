@@ -22,11 +22,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nsgm-cli": "^2.0.12"
+    "graphql": "^16.9.0",
+    "nsgm-cli": "^2.0.26",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.6",
     "@types/node": "^20.14.10",
-    "@types/react": "^18.3.3"
+    "@types/react": "^18.3.3",
+    "babel-plugin-styled-components": "^2.1.4",
+    "typescript": "5.6.2"
   }
 }
