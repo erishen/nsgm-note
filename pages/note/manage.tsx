@@ -9,7 +9,7 @@ import _ from 'lodash'
 import moment from 'moment'
 import locale from 'antd/lib/locale/zh_CN'
 import { handleXSS, checkModalObj } from '../../client/utils/common'
-import XLSX from 'xlsx'
+import { utils, writeFile } from 'xlsx'
 import { UploadOutlined } from '@ant-design/icons'
 
 const pageSize = 100
@@ -164,16 +164,16 @@ const Page = ({ note }) => {
 
   const exportNote = () => { 
     if (noteItems.length > 0) {
-      const wb = XLSX.utils.book_new()
+      const wb = utils.book_new()
       const jsonData = _.map(noteItems, (item) => _.omit(item, ['key']))
       //console.log('jsonData', jsonData)
-      const ws = XLSX.utils.json_to_sheet(jsonData)
+      const ws = utils.json_to_sheet(jsonData)
   
       /* add worksheet to workbook */
-      XLSX.utils.book_append_sheet(wb, ws, "Note")
+      utils.book_append_sheet(wb, ws, "Note")
   
       /* write workbook */
-      XLSX.writeFile(wb, "Note.xlsx")
+      writeFile(wb, "Note.xlsx")
     } else { 
       message.info("没有数据无需导出")
     }
